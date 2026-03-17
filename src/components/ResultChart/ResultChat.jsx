@@ -1,6 +1,5 @@
 import React from 'react';
-import { RechartsDevtools } from '@recharts/devtools';
-import { Line, LineChart } from 'recharts';
+import { Line, LineChart, XAxis, YAxis } from 'recharts';
 
 const resultData = [
     { "id": 1, "name": "Student 1", "physics": 78, "math": 85, "chemistry": 80, "biology": 75 },
@@ -17,10 +16,12 @@ const resultData = [
 
 const ResultChat = () => {
     return (
-        <div>
-            <LineChart width={500} height={500} data={resultData}>
+        <div className='flex justify-center m-10'>
+            <LineChart width={600} height={400} data={resultData}>
+                <XAxis dataKey="id"></XAxis>
+                <YAxis></YAxis>
                 <Line dataKey="math" />
-                <RechartsDevtools />
+                <Line dataKey="chemistry" stroke='red' />
             </LineChart>
         </div>
     );
